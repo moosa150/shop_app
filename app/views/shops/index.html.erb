@@ -1,0 +1,45 @@
+
+
+<h1>Listing All Shops</h1>
+ 
+
+<%= link_to 'Add New Shop', new_shop_path %>
+<table>
+  <tr>
+    <th>Shop Name</th>
+    <th>Details</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @shops.each do |shop| %>
+    <tr>
+      <td><%= shop.shop_name %></td>
+      <td><%= shop.details %></td>
+      <td><%= link_to 'Show', shop_path(shop) %></td>
+        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+        <td><%= link_to 'Destroy', shop_path(shop),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<style>
+
+h1 {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: serif
+}
+a:link, a:visited {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  display: inline-block
+}
+
+a:hover, a:active {
+  background-color: gray;
+}
